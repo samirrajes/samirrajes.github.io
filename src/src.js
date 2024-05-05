@@ -9,8 +9,8 @@ import { setupEventHandlers } from './eventHandlers.js';
 document.addEventListener('DOMContentLoaded', async () => {
     setupLights();
     createTypewriterMessage();
-    await loadModel(scene);  // Load the model before setting up handlers
-    setupEventHandlers(camera, scene, renderer);  // Pass the scene to the event handlers
+    await loadModel(scene);  // load model before setting up handlers
+    setupEventHandlers(camera, scene, renderer);  // pass the scene to the event handlers
     renderer.setAnimationLoop(() => {
         renderer.render(scene, camera);
     });

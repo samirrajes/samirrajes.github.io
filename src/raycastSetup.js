@@ -4,11 +4,10 @@ const mouseRaycaster = new THREE.Raycaster();
 const clickRaycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
 
-// Ensure `character` is accessible globally within this module or passed correctly
 let character = null;
 
 function setCharacter(model) {
-    character = model;  // This sets the global character model reference.
+    character = model;  // sets global character model reference
 }
 
 function updateMouseRaycaster(camera, scene) {
