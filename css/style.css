@@ -1,0 +1,12 @@
+.hidden {
+    display: none;
+}
+
+#webContent {
+    width: 640px;
+    height: 480px;
+    background-color: white;
+    border: 1px solid black;
+    padding: 10px;
+    box-sizing: border-box;
+}
