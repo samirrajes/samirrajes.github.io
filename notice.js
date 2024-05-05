@@ -6,7 +6,7 @@ function loadGoogleFonts() {
 }
 
 export function createTypewriterMessage() {
-    loadGoogleFonts(); // Ensure fonts are loaded before creating the component
+    loadGoogleFonts(); // load fonts
     const typewriterDiv = document.createElement('div');
     typewriterDiv.className = 'typewriter';
     typewriterDiv.style.fontFamily = '"Courier Prime", monospace';

@@ -8,24 +8,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.z = 10; // Ensure the camera is positioned to view the scene
+    camera.position.z = 10; // setup camera to view the scene
     const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setClearColor(0xffffff);
     document.body.appendChild(renderer.domElement);
 
-    // Lighting
+    // setup lighting
     const ambientLight = new THREE.AmbientLight(0x404040);
     scene.add(ambientLight);
     const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
     directionalLight.position.set(0, 1, 1);
     scene.add(directionalLight);
 
-    // Raycaster and Mouse
+    // init raycaster & mouse
     const raycaster = new THREE.Raycaster();
     const mouse = new THREE.Vector2();
 
-    // GLTF Loader
+    // GLTF loader, load in blender model
     const characterloader = new GLTFLoader();
     let character;
 
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error(error);
     });
 
-    // Plane for Raycaster
+    // plane for raycaster
     const planeZ = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
 
     function onMouseMove(event) {
@@ -52,12 +52,12 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(animate);
 
         if (character) {
-            // Update the raycaster
+            // update raycaster
             raycaster.setFromCamera(mouse, camera);
             const target = new THREE.Vector3();
             raycaster.ray.intersectPlane(planeZ, target);
 
-            // Rotate model to face the target
+            // rotate model to face target
             character.lookAt(target);
         }
 
