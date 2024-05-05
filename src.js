@@ -15,10 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.appendChild(renderer.domElement);
 
     // setup lighting
-    const ambientLight = new THREE.AmbientLight(0x404040);
+    const ambientLight = new THREE.AmbientLight(0xffffff);
     scene.add(ambientLight);
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
-    directionalLight.position.set(0, 1, 1);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1.0);
+    directionalLight.position.set(0, 10, 5);
     scene.add(directionalLight);
 
     // init raycaster & mouse
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         character = gltf.scene;
         character.castShadow = true;
         character.scale.set(2, 2, 2);
-        character.position.set(0, 0, -30);
+        character.position.set(0, 0, -20);
         scene.add(character);
     }, undefined, (error) => {
         console.error(error);
