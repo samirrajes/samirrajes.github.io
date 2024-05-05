@@ -14,6 +14,16 @@ document.addEventListener('DOMContentLoaded', () => {
     renderer.setClearColor(0xffffff);
     document.body.appendChild(renderer.domElement);
 
+    // Function to handle window resize
+    function onWindowResize() {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();  // Important to update the camera's projection matrix
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    }
+
+    // Listen for window resize events
+    window.addEventListener('resize', onWindowResize, false);
+
     // setup lighting
     const ambientLight = new THREE.AmbientLight(0xffffff);
     scene.add(ambientLight);
