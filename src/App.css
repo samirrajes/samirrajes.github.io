@@ -1,5 +1,12 @@
-/* 1. IMPORT FONTS */
+/* 1. IMPORT FONTS - KEEP IBM PLEX MONO + YOUR SKANAUS FACE */
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;700&display=swap');
+
+@font-face {
+  font-family: 'Skanaus Display';
+  src: url('/fonts/Skanaus-Display.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
 
 /* GLOBAL RESET */
 * {
@@ -18,9 +25,9 @@ body {
   line-height: 1.6; /* more comfortable reading */
 }
 
-/* ACCENT COLOR */
+/* ACCENT COLOR (RED) */
 :root {
-  --accent-color: #f16624;
+  --accent-color: #d40000; /* changed from #f16624 to #d40000 */
 }
 
 /* 2. NAVBAR (SAMPLE) */
@@ -60,19 +67,19 @@ body {
   border-bottom: 1px dashed #ccc;
 }
 
-/* Make name bigger, use bold weight */
+/* Make name bigger, but use SKANAUS now */
 .hero-name {
-  font-family: 'IBM Plex Mono', monospace;
-  font-weight: 700;
+  font-family: 'Skanaus Display', sans-serif; /* Only for the Hero name */
   font-size: 4rem;  /* increased size */
   margin-bottom: 2rem;
 }
 
+/* rest of the hero text remains IBM Plex Mono, so no change needed */
 .hero-intro {
   max-width: 500px;
   margin-top: 1rem;
   font-size: 1rem;
-  /* still IBM Plex Mono, so no change needed for font-family */
+  /* still IBM Plex Mono (inherited from body) */
 }
 
 .hero-left {
@@ -100,7 +107,6 @@ body {
   border-bottom: 1px dashed #ccc;
 }
 
-/* Use bold for this heading as well */
 .featured-projects h2 {
   font-family: 'IBM Plex Mono', monospace;
   font-weight: 700;
@@ -134,12 +140,10 @@ body {
   margin-right: 1.5rem;
 }
 
-/* Project text on the right */
 .project-text {
   flex: 1;
 }
 
-/* Use bold for project titles */
 .project-title {
   font-family: 'IBM Plex Mono', monospace;
   font-weight: 700;

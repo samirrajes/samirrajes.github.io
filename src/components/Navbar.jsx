@@ -6,9 +6,9 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="nav-left">
-        {/* You could insert your name or a small brand text/logo here instead */}
+        {/* insert name or text/logo here instead */}
         <NavLink to="/" className="brand">
-          [NAME / LOGO]
+          Samir Rajesh
         </NavLink>
       </div>
       <div className="nav-right">
