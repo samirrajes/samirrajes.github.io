@@ -36,19 +36,24 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 2rem;
-  border-bottom: 1px dashed #ccc;
+  /* Updated border style */
+  border-bottom: 1px solid var(--accent-color);
+  margin: 0 1rem; /* small margin from edges */
   background-color: #fff;
+  font-size: 1.1rem;  /* increased size */
 }
 
 .nav-left .brand {
   text-decoration: none;
-  color: #333;
+  font-weight: bold;
+  color: var(--accent-color);
 }
 
 .nav-right a {
   margin-left: 1.5rem;
   text-decoration: none;
-  color: #333;
+  font-weight: bold;
+  color: var(--accent-color);
   border-bottom: 1px dashed transparent;
 }
 
@@ -64,24 +69,29 @@ body {
   align-items: flex-start; /* so name lines up top */
   min-height: 70vh; /* big hero */
   padding: 4rem 2rem; /* more padding top & bottom */
-  border-bottom: 1px dashed #ccc;
+  /* Updated border style */
+  border-bottom: 1px solid var(--accent-color);
+  margin: 0 1rem; /* small margin from edges */
 }
 
-/* Make name bigger, but use SKANAUS now */
+/* Updated hero-name to combine name and intro */
 .hero-name {
   font-family: 'Skanaus Display', sans-serif; /* Only for the Hero name */
   font-size: 4rem;  /* increased size */
   margin-bottom: 2rem;
+  color: #333;
+  line-height: 1.4;
 }
 
-/* rest of the hero text remains IBM Plex Mono, so no change needed */
-.hero-intro {
-  max-width: 500px;
-  margin-top: 1rem;
-  font-size: 1rem;
-  /* still IBM Plex Mono (inherited from body) */
+/* Highlight "Samir" with accent color inside hero-name */
+.hero-name span.highlight {
+  color: var(--accent-color);
 }
 
+/* Remove hero-intro styling as it's no longer used */
+/* .hero-intro { ... } */
+
+/* Keeping .hero-left and .hero-right unchanged */
 .hero-left {
   flex: 1;
 }
@@ -104,7 +114,9 @@ body {
 .featured-projects {
   width: 100%;
   padding: 4rem 2rem; /* extra top/bottom space */
-  border-bottom: 1px dashed #ccc;
+  /* Updated border style */
+  border-bottom: 1px solid var(--accent-color);
+  margin: 0 1rem; /* small margin from edges */
 }
 
 .featured-projects h2 {
@@ -125,7 +137,8 @@ body {
 /* Each project row */
 .featured-item {
   display: flex;
-  border: 1px dashed #ccc;
+  /* Updated border style */
+  border: 1px solid var(--accent-color);
   background-color: #fff;
   width: 100%;
   min-height: 150px;
@@ -167,11 +180,12 @@ body {
   display: block;
   margin: 3rem auto 0 auto;
   padding: 0.75rem 2rem;
-  border: 1px dashed #ccc;
+  /* Updated border style */
+  border: 1px solid var(--accent-color);
   background-color: #fff;
   color: #333;
   cursor: pointer;
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-family: 'IBM Plex Mono', monospace;
 }
 

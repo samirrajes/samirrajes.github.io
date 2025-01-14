@@ -6,10 +6,9 @@ export default function Hero() {
   return (
     <section className="hero">
       <div className="hero-left">
-        <h1 className="hero-name">Samir Rajesh</h1>
-        <p className="hero-intro">
-          Some text talking about what I am doing currently...
-        </p>
+        <h1 className="hero-name">
+          Hi, I am <span class="highlight">Samir</span>! etc etc etc etc etc etc etc etc etc etc etc etc etc etc etc etc etc etc etc etc etc etc etc etc etc etc etc etc etc etc
+        </h1>
       </div>
 
       <div className="hero-right">
