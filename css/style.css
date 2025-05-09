@@ -232,3 +232,83 @@ body {
     color: var(--text);
   }
 }
+
+/*────────────────────────────────────────
+  Project page layout
+────────────────────────────────────────*/
+.project-page {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Row 1: two columns */
+.project-intro {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: var(--gutter);
+  
+  /* ← new: draw a solid line below row 1 */
+  padding-bottom: var(--pad);
+  border-bottom: var(--line);
+  margin-bottom: var(--pad);
+}
+
+/* Meta info (title & creators) */
+.project-intro .meta {
+  font-size: var(--fs-list);
+  line-height: var(--lh);
+}
+.project-intro .project-title {
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+.project-intro .project-creators {
+  font-style: italic;
+}
+
+/* Artistic description */
+.project-intro .artistic {
+  font-size: var(--fs-content);
+  line-height: var(--lh);
+}
+
+/* Row 2: full-width */
+.project-details {
+  font-size: var(--fs-content);
+  line-height: var(--lh);
+}
+
+/* Float helpers for images & videos */
+.project-details figure,
+.project-details video {
+  max-width: 40%;
+  margin: 0 var(--gutter) var(--gutter) 0;
+}
+.project-details .float-left {
+  float: left;
+}
+.project-details .float-right {
+  float: right;
+}
+
+/* Ensure floats are cleared */
+.project-details::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive: single-column on mobile */
+@media (max-width: 768px) {
+  .project-intro {
+    grid-template-columns: 1fr;
+  }
+  .project-details figure,
+  .project-details video {
+    max-width: 100%;
+    float: none;
+    margin: var(--gutter) 0;
+  }
+}
+
+
