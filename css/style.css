@@ -4,17 +4,23 @@
 @font-face {
   font-family: 'Monument Grotesk';
   src: url('../assets/fonts/Monument_Grotesk/MonumentGrotesk-Regular.otf') format('opentype');
-  font-weight: 400; font-style: normal; font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: 'Monument Grotesk';
   src: url('../assets/fonts/Monument_Grotesk/MonumentGrotesk-Medium.otf') format('opentype');
-  font-weight: 500; font-style: normal; font-display: swap;
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: 'Monument Grotesk';
   src: url('../assets/fonts/Monument_Grotesk/MonumentGrotesk-Bold.otf') format('opentype');
-  font-weight: 700; font-style: normal; font-display: swap;
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 /*────────────────────────────────────────
@@ -26,28 +32,28 @@
   --text:         #000;
   --accent:       #800000;
 
-  --pad:          1rem;
-  --gutter:       0.5rem;
-  --indent:       0.75rem;     /* tree indent */
-  --lh:           1;           /* line-height */
-  --ls:           0;           /* letter-spacing */
-  --line:         1px solid #000; /* solid black lines */
+  --pad:          0.5rem;
+  --gutter:       0.25rem;
+  --indent:       0.5rem;
+  --lh:           1;
+  --ls:           0;
 
-  --fs-list:      clamp(1.5rem,4vw,2rem);
-  --fs-title:     clamp(2.2rem,6vw,3rem);
-  --fs-content:   clamp(0.9rem,2.5vw,1.2rem);
+  --tree-line:    2px solid #000;
+  --line-light:   1px solid rgba(0,0,0,0.3);
 
-  --line-gap:     0.2rem;     /* gap between connector and text */
-  --icon-scale:   0.85;        /* 85% of fs-list */
+  --fs-list:      clamp(2rem,6vw,3.5rem);
+  --fs-content:   clamp(0.7rem,1.8vw,0.85rem);
 }
 
 * {
-  margin: 0; padding: 0; box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   font-family: var(--font);
-  font-weight: 400;
+  font-weight: 500;
   line-height: var(--lh);
   letter-spacing: var(--ls);
   color: var(--text);
@@ -62,119 +68,176 @@ body {
   display: flex;
   height: 100vh;
 }
+
 .split-line {
   width: 0;
-  border-left: var(--line);
+  border-left: var(--line-light);
 }
 
 /*────────────────────────────────────────
-  Panels share padding
+  Sidebar & Content panels
 ────────────────────────────────────────*/
 .sidebar,
 .content {
-  flex: 0 0 50%;
   padding: var(--pad);
   overflow-y: auto;
 }
 
+.sidebar {
+  flex: 0 0 50%;
+  overflow-x: auto;
+}
+
+.content {
+  flex: 0 0 50%;
+  position: relative;
+  z-index: 1;
+  background: var(--bg);
+}
+
 /*────────────────────────────────────────
-  Folder-Tree Navigation with collapsible
+  Single‐pane landing and two‐pane detail
+────────────────────────────────────────*/
+body.home .sidebar {
+  flex: 0 0 100%;
+  overflow-x: hidden;
+}
+
+body.home .split-line,
+body.home .content {
+  display: none;
+}
+
+body.detail .container {
+  display: block;
+  position: relative;
+}
+
+body.detail .sidebar {
+  flex: 0 0 100%;
+  overflow-x: hidden;
+}
+
+body.detail .split-line {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  border-left: var(--line-light);
+}
+
+body.detail .content {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  background: var(--bg);
+  overflow-y: auto;
+}
+
+/*────────────────────────────────────────
+  Folder-Tree Navigation
 ────────────────────────────────────────*/
 .tree ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-
-/* Level-1 branch */
 .tree ul > li > ul {
-  border-left: var(--line);
   margin: var(--gutter) 0 0 var(--indent);
   padding-left: var(--indent);
+  border-left: none;
 }
-
-/* Hide collapsed branches */
-.tree li.collapsed > ul {
+.tree ul > li > ul::before,
+.tree ul > li > ul > li::before {
   display: none;
 }
 
-/* Level-2 items for connector */
-.tree ul > li > ul > li {
-  position: relative;
-  margin-bottom: var(--gutter);
-}
-
-/* Connector only for visible items */
-.tree ul > li > ul > li::before {
-  content: "";
-  position: absolute;
-  top: calc(var(--fs-list) * var(--lh) / 2);
-  left: calc(-1 * var(--indent));
-  width: var(--indent);
-  border-top: var(--line);
-}
-
-/*────────────────────────────────────────
-  List items (uniform style)
-────────────────────────────────────────*/
 .folder-header,
-.folder,
-.sidebar a {
+.folder {
   background: none;
   border: none;
   padding: 0;
   font: inherit;
+  outline: none;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
   font-size: var(--fs-list);
-  font-weight: 400;
-  text-decoration: none;
+  font-weight: 300;
   color: var(--text);
   margin-bottom: var(--gutter);
-  cursor: pointer;
+  margin-left: var(--indent);
+}
+
+.sidebar a {
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--fs-list);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--text);
+  text-decoration: none;
   margin-bottom: var(--gutter);
-  margin-left: var(--line-gap);   /* shift text over from the line */
-  cursor: pointer;
+  margin-left: var(--indent);
 }
-
-/* Folder icon via SVG */
-.folder-icon {
-  width: calc(var(--fs-list) * var(--icon-scale));
-  height: calc(var(--fs-list) * var(--icon-scale));
-  margin-right: var(--line-gap);
-  background: no-repeat center/contain url('../assets/icons/folder.svg');
-}
-
-/* Hide file-icon spans */
-.file-icon {
-  display: none;
-}
-
-/* Active link color only */
 .sidebar a.active {
   color: var(--accent);
 }
 
+.folder-icon {
+  width: calc(var(--fs-list) * 0.85);
+  height: calc(var(--fs-list) * 0.85);
+  margin-right: var(--gutter);
+  background: no-repeat center/contain url('../assets/icons/folder.svg');
+}
+.file-icon { display: none; }
+
 /*────────────────────────────────────────
-  Content styling
+  Close button
 ────────────────────────────────────────*/
+.close-btn {
+  display: block;
+  text-align: right;
+  margin: var(--gutter) 0 var(--pad) 0;
+  font-size: var(--fs-content);
+  color: var(--text);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/*────────────────────────────────────────
+  Content styling (project & about)
+────────────────────────────────────────*/
+.content,
+.project-page,
+.about-page {
+  font-size: var(--fs-content);
+  font-weight: 500;
+  line-height: var(--lh);
+}
 .content h1 {
-  font-size: var(--fs-title);
+  font-size: var(--fs-content);
   margin-bottom: var(--gutter);
   color: var(--accent);
-  font-weight: 400;
+  font-weight: 500;
 }
 .content p,
 .content a {
   font-size: var(--fs-content);
   margin-bottom: var(--gutter);
-  text-decoration: none;
   color: var(--text);
+  text-decoration: none;
 }
 
-/* placeholders & floats */
+/*────────────────────────────────────────
+  Placeholder rectangles
+────────────────────────────────────────*/
 .placeholder-img {
-  background: #000000;
+  background: #000;
   width: 100%;
   height: 150px;
   margin: var(--gutter) 0;
@@ -182,19 +245,49 @@ body {
 .float-left {
   float: left;
   width: 40%;
-  margin-right: var(--gutter);
-  margin-bottom: var(--gutter);
+  margin: 0 var(--gutter) var(--gutter) 0;
 }
 .float-right {
   float: right;
   width: 40%;
-  margin-left: var(--gutter);
-  margin-bottom: var(--gutter);
+  margin: 0 0 var(--gutter) var(--gutter);
 }
-.content::after {
+.project-details::after,
+.about-page .about-row::after {
   content: "";
   display: table;
   clear: both;
+}
+
+/*────────────────────────────────────────
+  Two-row split layout
+────────────────────────────────────────*/
+.project-intro,
+.about-page .about-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: var(--gutter);
+  padding-bottom: var(--pad);
+  border-bottom: var(--line-light);
+  margin-bottom: var(--pad);
+}
+.project-intro .project-title,
+.project-intro .project-creators,
+.project-intro .artistic {
+  font-size: var(--fs-content);
+}
+.about-page .label,
+.about-page .detail {
+  font-size: var(--fs-content);
+}
+.about-page .label {
+  font-weight: 500;
+}
+.about-page .detail p {
+  margin: 0 0 var(--gutter) 0;
+}
+.about-page .detail p:last-child {
+  margin-bottom: 0;
 }
 
 /*────────────────────────────────────────
@@ -223,85 +316,10 @@ body {
     height: 100vh;
     overflow-y: auto;
   }
-  .close-btn {
-    display: block;
-    text-align: center;
-    margin: var(--gutter) 0;
-    font-weight: 400;
-    text-decoration: none;
-    color: var(--text);
-  }
-}
 
-/*────────────────────────────────────────
-  Project page layout
-────────────────────────────────────────*/
-.project-page {
-  display: flex;
-  flex-direction: column;
-}
-
-/* Row 1: two columns */
-.project-intro {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-gap: var(--gutter);
-  
-  /* ← new: draw a solid line below row 1 */
-  padding-bottom: var(--pad);
-  border-bottom: var(--line);
-  margin-bottom: var(--pad);
-}
-
-/* Meta info (title & creators) */
-.project-intro .meta {
-  font-size: var(--fs-list);
-  line-height: var(--lh);
-}
-.project-intro .project-title {
-  font-weight: 500;
-  margin-bottom: 0.25rem;
-}
-.project-intro .project-creators {
-  font-style: italic;
-}
-
-/* Artistic description */
-.project-intro .artistic {
-  font-size: var(--fs-content);
-  line-height: var(--lh);
-}
-
-/* Row 2: full-width */
-.project-details {
-  font-size: var(--fs-content);
-  line-height: var(--lh);
-}
-
-/* Float helpers for images & videos */
-.project-details figure,
-.project-details video {
-  max-width: 40%;
-  margin: 0 var(--gutter) var(--gutter) 0;
-}
-.project-details .float-left {
-  float: left;
-}
-.project-details .float-right {
-  float: right;
-}
-
-/* Ensure floats are cleared */
-.project-details::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Responsive: single-column on mobile */
-@media (max-width: 768px) {
-  .project-intro {
-    grid-template-columns: 1fr;
+  .project-intro,
+  .about-page .about-row {
+    grid-template-columns: 1fr !important;
   }
   .project-details figure,
   .project-details video {
@@ -309,6 +327,10 @@ body {
     float: none;
     margin: var(--gutter) 0;
   }
+  .float-left,
+  .float-right {
+    float: none;
+    width: 100%;
+    margin: var(--gutter) 0;
+  }
 }
-
-
