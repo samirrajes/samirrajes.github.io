@@ -1,6 +1,16 @@
 const contentEl = document.querySelector('.content');
 const links     = document.querySelectorAll('.sidebar a');
 
+// collapse folders: toggle 'collapsed' class on folder click
+const folderButtons = document.querySelectorAll('.folder-header, .folder');
+folderButtons.forEach(btn => {
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+    const li = btn.parentElement;
+    li.classList.toggle('collapsed');
+  });
+});
+
 async function loadPage(file, hash) {
   try {
     // fetch & inject
@@ -19,7 +29,7 @@ async function loadPage(file, hash) {
     setActiveLink(hash);
 
     // show detail pane
-    document.body.classList.replace('home','detail');
+    document.body.classList.replace('home', 'detail');
 
     // insert desktop/mobile close button under first row
     const close = document.createElement('a');
@@ -33,7 +43,7 @@ async function loadPage(file, hash) {
     // close handler
     close.addEventListener('click', e => {
       e.preventDefault();
-      document.body.classList.replace('detail','home');
+      document.body.classList.replace('detail', 'home');
       setActiveLink('');  // clear highlight
     });
   } catch (e) {

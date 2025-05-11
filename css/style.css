@@ -73,7 +73,7 @@ body {
 .split-line {
   width: 0;
   border-left: var(--line-light);
-  z-index: 2; /* sit above content for visibility */
+  z-index: 2;
 }
 
 /*────────────────────────────────────────
@@ -150,9 +150,10 @@ body.detail .content {
 .tree li.collapsed > ul {
   display: none;
 }
+/* Indent nested items by the width of the folder icon + gutter */
 .tree ul > li > ul {
-  margin: var(--gutter) 0 0 var(--indent);
-  padding-left: var(--indent);
+  margin: var(--gutter) 0 0 calc(var(--fs-list) * 0.85 + var(--gutter));
+  padding-left: 0;
   border-left: none;
 }
 .tree ul > li > ul::before,
@@ -213,6 +214,15 @@ body.detail .content {
   color: var(--text);
   text-decoration: none;
   cursor: pointer;
+}
+
+/*────────────────────────────────────────
+  Gap after close buttons on both About & Project pages
+────────────────────────────────────────*/
+.about-page .close-btn,
+.project-page .close-btn {
+  /* leave roughly one line of space under the button */
+  margin-bottom: 1em;
 }
 
 /*────────────────────────────────────────
@@ -317,6 +327,8 @@ body.detail .content {
     display: none;
   }
   body.detail .content {
+    position: static;
+    width: 100%;
     display: block;
     padding: var(--pad);
     height: 100vh;
