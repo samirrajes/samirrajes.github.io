@@ -216,6 +216,18 @@ body.detail .content {
   cursor: pointer;
 }
 
+.close-btn.close-bottom {
+  display: none;
+}
+
+body.detail .close-btn.close-bottom {
+  display: block;
+  position: fixed;
+  bottom: var(--pad);
+  right: var(--pad);
+  z-index: 10;
+}
+
 /*────────────────────────────────────────
   Gap after close buttons on both About & Project pages
 ────────────────────────────────────────*/

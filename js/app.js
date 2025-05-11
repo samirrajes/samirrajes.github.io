@@ -28,24 +28,36 @@ async function loadPage(file, hash) {
     // highlight nav link
     setActiveLink(hash);
 
-    // show detail pane
+    // switch to detail pane
     document.body.classList.replace('home', 'detail');
 
-    // insert desktop/mobile close button under first row
-    const close = document.createElement('a');
-    close.href = '#';
-    close.textContent = '(Close)';
-    close.className = 'close-btn';
-    // insert after the intro row (.project-intro or .about-row)
+    // Create first (top) close button
+    const closeTop = document.createElement('a');
+    closeTop.href = '#';
+    closeTop.textContent = '(Close)';
+    closeTop.className = 'close-btn';
+    // insert after intro row (.project-intro or .about-row)
     const intro = contentEl.querySelector('.project-intro, .about-row');
-    intro.insertAdjacentElement('afterend', close);
-
-    // close handler
-    close.addEventListener('click', e => {
+    intro.insertAdjacentElement('afterend', closeTop);
+    closeTop.addEventListener('click', e => {
       e.preventDefault();
       document.body.classList.replace('detail', 'home');
-      setActiveLink('');  // clear highlight
+      setActiveLink('');
     });
+
+    // Create second (bottom-right) close button
+    const closeBottom = document.createElement('a');
+    closeBottom.href = '#';
+    closeBottom.textContent = '(Close)';
+    closeBottom.className = 'close-btn close-bottom';
+    // append to body for fixed positioning
+    document.body.appendChild(closeBottom);
+    closeBottom.addEventListener('click', e => {
+      e.preventDefault();
+      document.body.classList.replace('detail', 'home');
+      setActiveLink('');
+    });
+
   } catch (e) {
     contentEl.innerHTML = `<p>Error loading ${file}</p>`;
   }
