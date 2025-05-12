@@ -30,7 +30,7 @@
   --font:         'Monument Grotesk', sans-serif;
   --bg:           #fff;
   --text:         #000;
-  --accent:       #800000;
+  --accent:       #8d0202;
 
   --pad:          0.5rem;
   --gutter:       0.25rem;
@@ -42,7 +42,7 @@
   --line:         1px solid #000;
   --line-light:   1px solid rgba(0,0,0,0.3);
 
-  --fs-list:      clamp(2rem,6vw,3.5rem);
+  --fs-list:      clamp(1.5rem,6vw,2rem);
   --fs-content:   clamp(0.7rem,1.8vw,0.85rem);
 }
 
@@ -183,6 +183,7 @@ body.detail .content {
   align-items: center;
   font-size: var(--fs-list);
   font-weight: 300;
+  font-style: bold;
   font-style: italic;
   color: var(--text);
   text-decoration: none;
@@ -197,7 +198,7 @@ body.detail .content {
   width: calc(var(--fs-list) * 0.85);
   height: calc(var(--fs-list) * 0.85);
   margin-right: var(--gutter);
-  background: no-repeat center/contain url('../assets/icons/folder.svg');
+  background: no-repeat center/contain url('../assets/icons/folder3.svg');
 }
 .file-icon {
   display: none;
