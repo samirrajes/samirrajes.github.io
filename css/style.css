@@ -30,20 +30,24 @@
   --font:         'Monument Grotesk', sans-serif;
   --bg:           #fff;
   --text:         #000;
-  --accent:       #8d0202;
+  --accent:       #8a0000;
 
   --pad:          0.5rem;
   --gutter:       0.25rem;
-  --indent:       0.5rem;
+  --indent:       0.5rem; /* base indent for folder labels */
   --lh:           1.1;
   --ls:           0;
 
-  --tree-line:    2px solid #000;
-  --line:         1px solid #000;
-  --line-light:   1px solid rgba(0,0,0,0.2);
+  /* Tree-line parameters */
+  --tree-color:   rgba(0, 0, 0, 1);
+  --tree-width:   3px;
+  --tree-gap:     0.1rem;
 
   --fs-list:      clamp(1.5rem,6vw,2rem);
   --fs-content:   clamp(0.8rem,1.8vw,0.95rem);
+
+  --line:         1px solid #000;
+  --line-light:   1px solid rgba(0,0,0,0.2);
 }
 
 * {
@@ -103,21 +107,17 @@ body {
 body.home .sidebar {
   flex: 0 0 100%;
 }
-
 body.home .split-line,
 body.home .content {
   display: none;
 }
-
 body.detail .container {
   display: block;
   position: relative;
 }
-
 body.detail .sidebar {
   flex: 0 0 50%;
 }
-
 body.detail .split-line {
   display: block;
   position: absolute;
@@ -127,7 +127,6 @@ body.detail .split-line {
   border-left: var(--line);
   z-index: 2;
 }
-
 body.detail .content {
   display: block;
   position: absolute;
@@ -142,6 +141,10 @@ body.detail .content {
 /*────────────────────────────────────────
   Folder-Tree Navigation (collapsable)
 ────────────────────────────────────────*/
+
+.tree {
+  margin-left: calc(-4 * var(--indent));
+}
 .tree ul {
   list-style: none;
   margin: 0;
@@ -150,15 +153,27 @@ body.detail .content {
 .tree li.collapsed > ul {
   display: none;
 }
-/* Indent nested items by the width of the folder icon + gutter */
-.tree ul > li > ul {
-  margin: var(--gutter) 0 0 calc(var(--fs-list) * 0.85 + var(--gutter));
-  padding-left: 0;
-  border-left: none;
+.tree li {
+  position: relative;
+  /* indent text by icon width plus gutter */
+  padding-left: calc(var(--fs-list) * 0.85 + var(--gutter));
 }
-.tree ul > li > ul::before,
-.tree ul > li > ul > li::before {
-  display: none;
+.tree ul > li > ul {
+  position: relative;
+  margin: var(--gutter) 0 0 0;
+  padding-left: 0;
+}
+.tree li:not(.collapsed) > ul::before {
+  content: '';
+  position: absolute;
+  /* start gap below parent folder label */
+  top: var(--tree-gap);
+  /* center under icon: half of icon width */
+  left: calc((var(--fs-list) * 0.85) / 2 + var(--gutter));
+  /* end gap above last child */
+  bottom: var(--tree-gap);
+  width: 0;
+  border-left: var(--tree-width) solid var(--tree-color);
 }
 
 .folder-header,
@@ -177,13 +192,11 @@ body.detail .content {
   margin-bottom: var(--gutter);
   margin-left: var(--indent);
 }
-
 .sidebar a {
   display: inline-flex;
   align-items: center;
   font-size: var(--fs-list);
   font-weight: 300;
-  font-style: bold;
   font-style: italic;
   color: var(--text);
   text-decoration: none;
@@ -193,7 +206,6 @@ body.detail .content {
 .sidebar a.active {
   color: var(--accent);
 }
-
 .folder-icon {
   width: calc(var(--fs-list) * 0.85);
   height: calc(var(--fs-list) * 0.85);
@@ -212,15 +224,13 @@ body.detail .content {
   text-align: right;
   margin: var(--gutter) 0 calc(var(--pad) * 2) 0;
   font-size: var(--fs-content);
-  color: var(--text);
+  color: var(--accent);
   text-decoration: none;
   cursor: pointer;
 }
-
 .close-btn.close-bottom {
   display: none;
 }
-
 body.detail .close-btn.close-bottom {
   display: block;
   position: fixed;
@@ -234,8 +244,8 @@ body.detail .close-btn.close-bottom {
 ────────────────────────────────────────*/
 .about-page .close-btn,
 .project-page .close-btn {
-  /* leave roughly one line of space under the button */
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
+  color: var(--accent);
 }
 
 /*────────────────────────────────────────
