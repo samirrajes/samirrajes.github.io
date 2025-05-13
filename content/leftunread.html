@@ -6,32 +6,26 @@
       </div>
       <div class="artistic">
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. 
-          Cras venenatis euismod malesuada. Integer placerat lorem sit amet lectus luctus, sit amet convallis tortor ullamcorper. 
-          Proin nec libero sit amet mi egestas commodo.
+          Left Unread is a browser-based generative art piece that repurposes four years of personal text messages into unpredictable, poem-adjacent sentences via a one-word Markov model. Emotionally charged words are detected with a custom AFINN lexicon and transformed into abstract asemic graphics, inviting reflection on how machines mediate our speech and how much remains unseen in digital
         </p>
       </div>
     </div>
   
     <div class="project-details">
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque efficitur nibh at leo mollis,
-        sed imperdiet risus faucibus. Vivamus vehicula urna sed velit tristique, nec luctus dolor sagittis.
-        Integer euismod sapien in ipsum vulputate, nec tristique ante hendrerit. Duis nec metus tortor.
+        Left Unread starts with Python scripts that parse exported chat logs. Regular expressions redact personal names, strip out links and insert missing punctuation. The cleaned corpus feeds a 1-gram model that selects each next word based solely on the current one. This choice produces spontaneous, occasionally absurd sentences that capture the uncertainty of real-time speech and critique the over-polished output of modern language models.
       </p>
   
       <div class="placeholder-img"></div>
       <p>
-        Vivamus commodo enim nec accumsan bibendum. Sed cursus, massa sed fringilla laoreet, odio purus accumsan sapien,
-        sed ultricies lorem eros sed turpis. Curabitur pharetra nunc vitae justo consectetur, a imperdiet erat auctor.
-        Suspendisse potenti. Aliquam erat volutpat.
+        Once text is generated, each word is scored using a locally stored AFINN lexicon extended with personal slang and abbreviations. Words exceeding an emotional threshold trigger an asemic transformation stage. Letter shapes are sampled into point clouds, shuffled and reassembled into textured visual forms. This process mirrors the black-box nature of neural networks, where original data is hidden in a latent dimension.
       </p>
-  
       <div class="placeholder-img"></div>
       <p>
-        Phasellus tincidunt, lorem nec dignissim consequat, purus lacus pellentesque arcu, nec suscipit urna mi sed elit.
-        Nunc consequat leo vitae sapien aliquet, vitae faucibus velit gravida. Ut imperdiet dolor ut turpis scelerisque,
-        vehicula vulputate odio varius. Maecenas non nibh nec urna placerat aliquam.
+        The front end is implemented in p5.js. It renders text in real time using a pixelated font and scanline overlay that evoke early CRT terminals. A blinking cursor and subtle pauses between words mimic human typing rhythms. A simple state machine manages continuous generation, drawing each new word or asemic glyph to the canvas as soon as it emerges from the model.
+      </p>
+      <p>
+        By combining a minimal n-gram approach with sentiment-driven graphics and a nostalgic visual style, Left Unread creates a living installation. It asks how many genuine messages will never be seen amid the flood of machine-mediated content and celebrates the messy, unpredictable beauty of human language.
       </p>
     </div>
   </div>

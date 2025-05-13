@@ -6,32 +6,27 @@
       </div>
       <div class="artistic">
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. 
-          Cras venenatis euismod malesuada. Integer placerat lorem sit amet lectus luctus, sit amet convallis tortor ullamcorper. 
-          Proin nec libero sit amet mi egestas commodo.
+          Echo is an interactive kinetic sculpture that invites you to confront your own image in a tactile, living mirror. Beneath a stretchable fabric, 49 hidden servos quietly breathe and click, pressing polystyrene-tipped rods into the canvas to trace your silhouette in real time. A webcam and MediaPipe segmentation model reduce your form to a 7×7 grid of binary “push” or “pull” commands, sending a constant stream of data to an Arduino-driven servo array. At once playful and provocative, Echo materializes our modern obsession with selfies, surveillance, and social-media validation, turning the act of looking at ourselves into a ghostly, shifting relief.
         </p>
       </div>
     </div>
   
     <div class="project-details">
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque efficitur nibh at leo mollis,
-        sed imperdiet risus faucibus. Vivamus vehicula urna sed velit tristique, nec luctus dolor sagittis.
-        Integer euismod sapien in ipsum vulputate, nec tristique ante hendrerit. Duis nec metus tortor.
+        Echo reimagines the Narcissus myth through contemporary technology and craftsmanship. A camera captures each visitor, and TouchDesigner, using a MediaPipe segmentation model, isolates the human figure from its surroundings. This silhouette is downsampled to a 7×7 grid of black-and-white pixels, where each pixel becomes a binary command (“push” or “pull”). The resulting 49-byte array is sent to an Arduino, which addresses three chained PWM boards to actuate the servos.
       </p>
   
       <div class="placeholder-img"></div>
       <p>
-        Vivamus commodo enim nec accumsan bibendum. Sed cursus, massa sed fringilla laoreet, odio purus accumsan sapien,
-        sed ultricies lorem eros sed turpis. Curabitur pharetra nunc vitae justo consectetur, a imperdiet erat auctor.
-        Suspendisse potenti. Aliquam erat volutpat.
+        Each servo drives a wooden crank mechanism and guide, converting rotational motion into linear strokes that press polystyrene-tipped rods against the taut fabric. Rather than opting for quiet solenoids, we chose servos and lasercut plywood cranks to produce a subtle, rhythmic click that adds an auditory dimension to the sculpture’s kinetic presence.
       </p>
   
       <div class="placeholder-img"></div>
       <p>
-        Phasellus tincidunt, lorem nec dignissim consequat, purus lacus pellentesque arcu, nec suscipit urna mi sed elit.
-        Nunc consequat leo vitae sapien aliquet, vitae faucibus velit gravida. Ut imperdiet dolor ut turpis scelerisque,
-        vehicula vulputate odio varius. Maecenas non nibh nec urna placerat aliquam.
+        Constructed for the Refract exhibition, the frame and supports are precision-lasercut plywood, sanded smooth and reinforced to prevent sagging under the weight of the mechanism. Balancing live video processing, segmentation, data transmission, and the physical limits of servo speed required careful calibration, but the result is a responsive “echo” that materializes your form in soft shadows and gentle relief.
+      </p>
+      <p>
+        Special thanks to Daniel Rozin for inspiring the mirror concept and to Torin Blankensmith for the MediaPipe integration in TouchDesigner. Echo offers a contemplative pause, materializing our urge to see ourselves and encouraging us to question how deeply we inhabit our reflections.
       </p>
     </div>
   </div>

@@ -46,17 +46,17 @@ async function loadPage(file, hash) {
     });
 
     // Create second (bottom-right) close button
-    const closeBottom = document.createElement('a');
-    closeBottom.href = '#';
-    closeBottom.textContent = '(Close)';
-    closeBottom.className = 'close-btn close-bottom';
-    // append to body for fixed positioning
-    document.body.appendChild(closeBottom);
-    closeBottom.addEventListener('click', e => {
-      e.preventDefault();
-      document.body.classList.replace('detail', 'home');
-      setActiveLink('');
-    });
+    // const closeBottom = document.createElement('a');
+    // closeBottom.href = '#';
+    // closeBottom.textContent = '(Close)';
+    // closeBottom.className = 'close-btn close-bottom';
+    // // append to body for fixed positioning
+    // document.body.appendChild(closeBottom);
+    // closeBottom.addEventListener('click', e => {
+    //   e.preventDefault();
+    //   document.body.classList.replace('detail', 'home');
+    //   setActiveLink('');
+    // });
 
   } catch (e) {
     contentEl.innerHTML = `<p>Error loading ${file}</p>`;

@@ -35,15 +35,15 @@
   --pad:          0.5rem;
   --gutter:       0.25rem;
   --indent:       0.5rem;
-  --lh:           1;
+  --lh:           1.1;
   --ls:           0;
 
   --tree-line:    2px solid #000;
   --line:         1px solid #000;
-  --line-light:   1px solid rgba(0,0,0,0.3);
+  --line-light:   1px solid rgba(0,0,0,0.2);
 
   --fs-list:      clamp(1.5rem,6vw,2rem);
-  --fs-content:   clamp(0.7rem,1.8vw,0.85rem);
+  --fs-content:   clamp(0.8rem,1.8vw,0.95rem);
 }
 
 * {
