@@ -79,3 +79,11 @@ function setActiveLink(hash) {
 
 // On initial load, ensure we’re in home mode
 document.body.classList.add('home');
+
+// On initial load, ensure we’re in home mode
+document.body.classList.add('home');
+
+// If desktop, load About page on the right
+if (window.innerWidth > 768) {
+  loadPage('about.html', '#about');
+}

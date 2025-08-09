@@ -44,7 +44,8 @@
   --tree-gap:     0.1rem;
 
   --fs-list:      clamp(1.5rem,6vw,2rem);
-  --fs-content:   clamp(0.8rem,1.8vw,0.95rem);
+  /* --fs-content:   clamp(0.8rem,1.8vw,0.95rem); */
+  --fs-content: clamp(0.95rem, 2.2vw, 1.15rem);
 
   --line:         1px solid #000;
   --line-light:   1px solid rgba(0,0,0,0.2);

@@ -6,33 +6,40 @@
       </div>
       <div class="artistic">
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. 
-          Cras venenatis euismod malesuada. Integer placerat lorem sit amet lectus luctus, sit amet convallis tortor ullamcorper. 
-          Proin nec libero sit amet mi egestas commodo.
+          Dreadrunner is a first-person endless runner built in Unity, controlled through a custom magnet-based input system. Wearing two cardboard rings with embedded magnets, players move their hands in the air to steer, jump, or slide, with an Adafruit TLV493D magnetometer translating these gestures into game actions. The game drops players into a dim, claustrophobic tunnel lit only by a red point light, accompanied by glitchy camera shakes, distorted audio, and a constant forward sprint. There’s no score, no goal, and nothing visibly chasing you—only the relentless sensation of being pursued.
         </p>
       </div>
     </div>
   
     <div class="project-details">
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque efficitur nibh at leo mollis,
-        sed imperdiet risus faucibus. Vivamus vehicula urna sed velit tristique, nec luctus dolor sagittis.
-        Integer euismod sapien in ipsum vulputate, nec tristique ante hendrerit. Duis nec metus tortor.
+        The core of Dreadrunner is a procedural first-person environment built from modular cave segments. A custom generator aligns each segment’s entry and exit points to create a seamless, twisting tunnel. The environment is stripped of a visible skybox and bathed in red point-light illumination, keeping visibility short and amplifying a sense of confinement.
       </p>
   
-      <div class="placeholder-img"></div>
+      <br>
+
       <p>
-        Vivamus commodo enim nec accumsan bibendum. Sed cursus, massa sed fringilla laoreet, odio purus accumsan sapien,
-        sed ultricies lorem eros sed turpis. Curabitur pharetra nunc vitae justo consectetur, a imperdiet erat auctor.
-        Suspendisse potenti. Aliquam erat volutpat.
+        Camera motion is driven by layered systems: a constant head-bob from the character rig, a jitter effect that lerps between offset positions to simulate panic, and occasional glitch events that swap between preset camera states with abrupt FOV and distortion changes. The effect is reinforced by custom audio—footsteps, breathing, environmental hum, and glitch bursts—triggered by player state and location.
       </p>
   
-      <div class="placeholder-img"></div>
+      <br>
+
       <p>
-        Phasellus tincidunt, lorem nec dignissim consequat, purus lacus pellentesque arcu, nec suscipit urna mi sed elit.
-        Nunc consequat leo vitae sapien aliquet, vitae faucibus velit gravida. Ut imperdiet dolor ut turpis scelerisque,
-        vehicula vulputate odio varius. Maecenas non nibh nec urna placerat aliquam.
+        The magnet-based controller connects an Adafruit TLV493D to an Arduino Leonardo, streaming positional data over serial to Unity. Unity scripts interpret the sensor’s changing magnetic field to determine gestures, mapping them to movement controls. Data smoothing mitigates field instability, ensuring responsive, low-latency input.
+      </p>
+
+      <br>
+
+      <p>
+        Player collision and physics are handled through Unity’s CharacterController, with dimensions adjusted to match the imported Mixamo character rig. The slide mechanic reduces collider height for obstacle clearance, while jump and turn inputs are read directly from the magnetometer’s positional changes.
+      </p>
+
+      <br>
+
+      <p>
+        By combining procedural level design, an unconventional physical interface, and audio-visual design cues that induce unease, Dreadrunner becomes less about reflex-based gameplay and more about sustaining an embodied state of tension—an ongoing, inescapable run through darkness.
       </p>
     </div>
   </div>
   
+

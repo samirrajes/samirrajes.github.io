@@ -1,27 +1,32 @@
 <div class="project-page">
     <div class="project-intro">
       <div class="meta">
-        <p class="project-title">The Wired</p>
+        <p class="project-title">Sight from The Wired</p>
         <p class="project-creators">By Samir Rajesh &amp; Portia Summers</p>
       </div>
       <div class="artistic">
         <p>
-          The Wired is a work-in-progress network-driven simulation built in Unreal Engine that treats every IP address on the local network as an autonomous agent. Packet metadata—protocol, size, timing and content—dictates how agents interact, creating a unique, evolving digital ecosystem inspired by Serial Experiments Lain and Ian Cheng’s emissaries trilogy.
+          Sights from the Wired is a zero-player simulation that transforms live Wi-Fi network traffic into an evolving social ecosystem. Each unique IP address becomes an autonomous character navigating a stylised, retro-aesthetic recreation of St. Giles churchyard. Inspired by Serial Experiments Lain, the work explores how networked entities might adapt their traits and behaviours over time, using dynamic social learning models to guide their interactions. The piece offers a way of visualising and questioning the hidden architectures of digital life by turning packet flows into living, visible relationships.
         </p>
       </div>
     </div>
   
     <div class="project-details">
       <p>
-        At its core The Wired captures the invisible flow of data all around us and makes it manifest as an emergent virtual world. We use Wireshark to sniff live network traffic, parsing packet headers and payload characteristics in TouchDesigner. That pre-processed data is streamed via OSC into Unreal Engine, where each unique IP becomes an agent whose behavior is governed by packet activity—DNS lookups spawn exploratory movement, large file transfers trigger resource-focused tasks, and unusual protocols manifest as unpredictable interactions.
+        The simulation begins by capturing real-time packet data with TShark, which is streamed as JSON into Unreal Engine via the Remote Control API. A custom C++ actor parses each packet to extract IP addresses, protocols, and flags, spawning new agents whenever an unfamiliar IP appears. Each agent is assigned baseline traits such as trust, openness, and influence, and these values shift continuously through two main forms of interaction: packet-driven events, where specific network activity directly affects traits, and proximity encounters, where idle agents exchange influence and information with those nearby.
       </p>
+
+      <br>
   
-      <div class="placeholder-img"></div>
       <p>
-        Character models and environments are being developed in Blender with a visual style that echoes the grainy, neon-lined aesthetic of Serial Experiments Lain. Custom HLSL shaders recreate its scanline noise, phosphor glow, and abstract data-stream motifs. Because the project is still in development we continue to refine the data-to-behavior mapping, optimize real-time data transfer pipelines, and explore how device type (mobile, desktop, IoT) can influence agent traits. Ultimately The Wired aims to surface questions of privacy, surveillance and how our devices quietly shape collective digital behavior.
+        The stat-update logic draws on DeGroot and Deffuant opinion-dynamics models, enabling gradual alignment or divergence in traits over time. This feedback loop allows agents to adapt to both the immediate network environment and the evolving social state of the world, creating a simplified model of dynamic social learning. Movement is handled through NavMesh volumes and AI controllers, with animation blueprints used to adapt Unreal’s mannequin rig for walking, idle, and interaction states. The scene’s aesthetic is shaped by a custom post-process shader that applies vertex jitter, pixelation, and colour quantisation to evoke the visual style of early PlayStation games.
       </p>
-  
-      <div class="placeholder-img"></div>
+
+      <br>
+
+      <p>
+        My role encompassed building the real-time data pipeline from TShark to Unreal, writing the C++ parsing and agent-spawning logic, implementing the algorithms that drive agent interactions and social learning, and designing the retro-styled post-processing effects. The result is a system that turns invisible streams of network data into a self-adapting, living simulation — a portrait of how unseen digital processes might behave if given form, agency, and the capacity to learn from one another.
+      </p>
     </div>
   </div>
   

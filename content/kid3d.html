@@ -6,33 +6,30 @@
       </div>
       <div class="artistic">
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. 
-          Cras venenatis euismod malesuada. Integer placerat lorem sit amet lectus luctus, sit amet convallis tortor ullamcorper. 
-          Proin nec libero sit amet mi egestas commodo.
+          Kid3D is a procedural 3D reimagining of Radiohead’s Kid A album artwork, built entirely with mathematics, noise functions, and shader programming in p5.js. Using Perlin noise to generate a mountainous terrain, animated water, and a shifting sky, the piece translates the album’s cold, dystopian atmosphere into an evolving virtual landscape. By working directly in WebGL and writing custom shaders, the project explores how minimal geometry and code-driven lighting can evoke mood and texture without relying on pre-made assets.
         </p>
       </div>
     </div>
   
     <div class="project-details">
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque efficitur nibh at leo mollis,
-        sed imperdiet risus faucibus. Vivamus vehicula urna sed velit tristique, nec luctus dolor sagittis.
-        Integer euismod sapien in ipsum vulputate, nec tristique ante hendrerit. Duis nec metus tortor.
+          This sketch builds on generative terrain techniques, expanding Daniel Shiffman’s Perlin noise approach to create a large-scale, low-poly mountain range in WebGL. The terrain’s height map is recalculated each frame for subtle movement, while a second noise field drives the animation of a calm water surface. A third noise layer produces a per-pixel, evolving colour pattern for the sky, giving the scene an atmospheric drift.
       </p>
   
-      <div class="placeholder-img"></div>
+      <br>
+
       <p>
-        Vivamus commodo enim nec accumsan bibendum. Sed cursus, massa sed fringilla laoreet, odio purus accumsan sapien,
-        sed ultricies lorem eros sed turpis. Curabitur pharetra nunc vitae justo consectetur, a imperdiet erat auctor.
-        Suspendisse potenti. Aliquam erat volutpat.
+        To deepen the sense of scale and depth, I wrote custom vertex and fragment shaders implementing simple ambient and diffuse lighting models. Vertex normals are calculated per grid point, and shading is applied according to a configurable light vector, accentuating ridges and valleys. These shaders replace earlier stroke-based attempts, which lacked the visual depth and realism I was aiming for.
       </p>
+
+      <br>
   
-      <div class="placeholder-img"></div>
       <p>
-        Phasellus tincidunt, lorem nec dignissim consequat, purus lacus pellentesque arcu, nec suscipit urna mi sed elit.
-        Nunc consequat leo vitae sapien aliquet, vitae faucibus velit gravida. Ut imperdiet dolor ut turpis scelerisque,
-        vehicula vulputate odio varius. Maecenas non nibh nec urna placerat aliquam.
+        The piece is designed to echo the original Kid A cover’s sense of desolation and fragility. The bleakness of the scene is underscored by the subdued colour palette and the slow, almost imperceptible environmental changes. While the current version focuses on visual atmosphere, future iterations could integrate audio-reactive elements tied to the album itself, allowing terrain movement, lighting shifts, or sky patterns to respond dynamically to sound.
       </p>
     </div>
   </div>
   
+
+
+

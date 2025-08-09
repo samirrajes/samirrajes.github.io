@@ -16,15 +16,20 @@
         Granola begins by sampling ambient audio: a MAX9814 microphone module feeds the Teensy 3.6’s ADC and stores a few seconds of sound in a circular buffer. A push-button toggles between recording and playback modes. Once recorded, the buffer is treated as a palette of grains—small segments defined by position, length, and playback speed.
       </p>
   
-      <div class="placeholder-img"></div>
+      <br> 
+
       <p>
         On the hardware side, each parameter has its own potentiometer. One adjusts grain size, another controls how many grains overlap at once, a third sets the randomness of grain selection, and a fourth handles time stretching so you can slow down or speed up the texture without changing pitch. A MAX98306 amplifier drives two 8-ohm speakers (mirrored for mono output) so you hear every detail. Plate capacitors and careful grounding on the stripboard keep electrical noise and feedback under control.
       </p>
   
-      <div class="placeholder-img"></div>
+      <br> 
+
       <p>
         The firmware is organized as a simple state machine with three modes: sampling, playback, and granular synthesis. In synthesis mode a pool of grain structs is spawned continuously. Each grain reads from the audio buffer with linear interpolation between samples and applies a Hanning window to fade in and out smoothly. Grains are mixed and normalized in real time before being sent to the DAC. Tight CPU budgeting and iterative testing were required to prevent dropouts when dozens of overlapping grains play simultaneously.
       </p>
+
+      <br> 
+
       <p>
         From breadboard prototype to soldered stripboard and lightweight plywood enclosure, Granola transforms a handful of components into a hands-on granular playground. By combining direct sampling, low-level signal processing, and physical controls, it makes complex audio techniques feel as immediate as turning a dial.
       </p>

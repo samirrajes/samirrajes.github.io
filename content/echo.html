@@ -6,28 +6,35 @@
       </div>
       <div class="artistic">
         <p>
-          Echo is an interactive kinetic sculpture that invites you to confront your own image in a tactile, living mirror. Beneath a stretchable fabric, 49 hidden servos quietly breathe and click, pressing polystyrene-tipped rods into the canvas to trace your silhouette in real time. A webcam and MediaPipe segmentation model reduce your form to a 7×7 grid of binary “push” or “pull” commands, sending a constant stream of data to an Arduino-driven servo array. At once playful and provocative, Echo materializes our modern obsession with selfies, surveillance, and social-media validation, turning the act of looking at ourselves into a ghostly, shifting relief.
+          Echo is an interactive kinetic sculpture that turns your silhouette into a living, shifting relief. A camera and MediaPipe segmentation break your form into a simple 7×7 grid, sending push–pull commands to 49 servos hidden behind stretched fabric. As the rods press and release in real time, your image appears and dissolves, inviting reflection on how we see and share ourselves in the age of selfies and surveillance.
         </p>
       </div>
     </div>
   
     <div class="project-details">
+
       <p>
-        Echo reimagines the Narcissus myth through contemporary technology and craftsmanship. A camera captures each visitor, and TouchDesigner, using a MediaPipe segmentation model, isolates the human figure from its surroundings. This silhouette is downsampled to a 7×7 grid of black-and-white pixels, where each pixel becomes a binary command (“push” or “pull”). The resulting 49-byte array is sent to an Arduino, which addresses three chained PWM boards to actuate the servos.
+      Echo begins with a webcam feed processed in TouchDesigner using a MediaPipe segmentation model to separate a visitor’s body from the background. The silhouette is downsampled to a 7×7 grid of binary states, where each pixel represents either a “push” (servo forward) or “pull” (servo back). This 49-bit array is streamed via serial to an Arduino Mega, which controls three daisy-chained 16-channel PWM driver boards.  
       </p>
-  
-      <div class="placeholder-img"></div>
+
+      <br> 
+
       <p>
-        Each servo drives a wooden crank mechanism and guide, converting rotational motion into linear strokes that press polystyrene-tipped rods against the taut fabric. Rather than opting for quiet solenoids, we chose servos and lasercut plywood cranks to produce a subtle, rhythmic click that adds an auditory dimension to the sculpture’s kinetic presence.
+        Each channel drives a micro servo connected to a laser-cut plywood crank and guide rail. The crank translates rotational movement into a linear push, moving a polystyrene-tipped rod that presses against the fabric surface. The fabric’s stretch and the rod tips’ texture help create a soft-edged, tactile impression of the silhouette.
       </p>
-  
-      <div class="placeholder-img"></div>
+
+      <br>
+
       <p>
-        Constructed for the Refract exhibition, the frame and supports are precision-lasercut plywood, sanded smooth and reinforced to prevent sagging under the weight of the mechanism. Balancing live video processing, segmentation, data transmission, and the physical limits of servo speed required careful calibration, but the result is a responsive “echo” that materializes your form in soft shadows and gentle relief.
+        The mechanism was intentionally designed with servos rather than silent actuators to produce a subtle rhythmic clicking, adding an audible layer to the experience. The frame and mounts are precision laser-cut plywood, sanded and reinforced to prevent warping or sag under the system’s weight.
       </p>
+
+      <br>
+
       <p>
-        Special thanks to Daniel Rozin for inspiring the mirror concept and to Torin Blankensmith for the MediaPipe integration in TouchDesigner. Echo offers a contemplative pause, materializing our urge to see ourselves and encouraging us to question how deeply we inhabit our reflections.
+        Building Echo required balancing live video processing latency, servo response time, and mechanical limits to ensure a smooth, responsive display. The final installation offers both an immediate visual impact and a deeper commentary on the merging of human presence with machine interpretation, drawing inspiration from Daniel Rozin’s mechanical mirrors.
       </p>
+
     </div>
   </div>
   

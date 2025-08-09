@@ -1,0 +1,40 @@
+<div class="project-page">
+    <div class="project-intro">
+      <div class="meta">
+        <p class="project-title">Fugue State</p>
+        <p class="project-creators">By Samir Rajesh</p>
+      </div>
+      <div class="artistic">
+        <p>
+          Fugue State is a sound-based exploration of GAN “forgetting,” created by progressively ablating channels inside a trained neural generator. A custom DCGAN, trained on guitar chord recordings converted into mel-spectrograms, is gradually disrupted segment by segment. Each ablated spectrogram is reconstructed into audio and stitched into a continuous soundscape, revealing a slow collapse in timbre and harmonic detail. The work uses machine learning as both a compositional process and a metaphor for memory loss, foregrounding the fragility of generative systems and the textures that emerge when their internal structures fail.
+        </p>
+      </div>
+    </div>
+  
+    <div class="project-details">
+      <p>
+        The project begins with a DCGAN architecture mapping 100-dimensional latent vectors to 128×128 mel-spectrograms of guitar chord audio. The generator and discriminator are trained from scratch for 400 epochs using hinge loss with additional mel-spectrogram reconstruction loss. Audio input is preprocessed into fixed-length clips, transformed into 128-band log-mel spectrograms, normalised to [–1, 1], and padded to a constant frame size.
+      </p>
+  
+      <br>
+
+      <p>
+        To produce the “forgetting” effect, the generator’s deconvolution layers are subjected to neural ablation: randomly selected output channels are zeroed out, one segment at a time. For each ablated spectrogram, a tuned Griffin–Lim inversion reconstructs the audio waveform, and the resulting segments are overlapped and lightly processed with reverb to create a seamless soundscape. As ablation progresses, harmonic richness degrades, chord shapes blur, and noise increasingly dominates — a sonic equivalent of perceptual erosion.
+      </p>
+
+      <br>
+
+      <p>
+        This method draws on “network bending” as a creative strategy, repurposing weight-level disruptions as a generative process rather than a failure state. The ablation schedule is currently random, but its pacing allows listeners to hear gradual transformation rather than abrupt collapse. The GAN’s outputs, while limited in fidelity by phase reconstruction artifacts, maintain enough structure to make the erosion perceptible.
+      </p>
+
+      <br>
+
+      <p>
+        In developing the piece, I implemented the data pipeline, GAN training loop, and ablation logic, as well as the inversion and post-processing stages. The result is both a process-based artwork and a critique of AI’s supposed stability, using its breakdown as raw material. By exposing and sonifying the internal decay of a neural network, Fugue State invites reflection on the instability, impermanence, and material constraints underpinning machine creativity.
+      </p>
+
+    </div>
+  </div>
+  
+
