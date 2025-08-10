@@ -444,5 +444,21 @@ body.detail .close-btn.close-bottom {
   color: var(--accent); /* dark red */
 }
 
+.status-box {
+  background-color: #e7e6e6;
+  border: 2px solid #000;
+  padding: 1rem;
+  margin-top: 1rem;
+  font-size: var(--fs-content);
+  max-width: 100%;
+}
+
+@media (min-width: 769px) {
+  .status-box {
+    max-width: 49.5%;
+  }
+}
+
+
 
 
