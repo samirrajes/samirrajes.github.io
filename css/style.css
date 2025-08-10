@@ -30,7 +30,7 @@
   --font:         'Monument Grotesk', sans-serif;
   --bg:           #fff;
   --text:         #000;
-  --accent:       #8a0000;
+  --accent:       #8b0000;
 
   --pad:          0.5rem;
   --gutter:       0.25rem;
@@ -376,3 +376,73 @@ body.detail .close-btn.close-bottom {
     margin: var(--gutter) 0;
   }
 }
+
+.project-details iframe {
+  width: 95%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  display: block;
+  margin: 0 auto; /* centers horizontally */
+  border: 1px solid #000; /* optional */
+}
+
+.project-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px; /* space between images */
+  padding: 10px 0;
+}
+
+.project-gallery img {
+  flex: 1 1 calc(50% - 16px); /* two images per row on large screens */
+  max-width: calc(50% - 16px);
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .project-gallery img {
+    flex: 1 1 100%; /* full width on mobile */
+    max-width: 100%;
+  }
+}
+
+/* Arrow on hover for sidebar project links */
+.sidebar .tree a {
+  position: relative;
+}
+
+.sidebar .tree a::after {
+  content: "→";
+  display: inline-block;
+  width: 1ch;              /* reserve space so layout doesn’t jump */
+  margin-left: 0.25ch;
+  color: var(--accent);    /* matches your red accent */
+  visibility: hidden;      /* immediate show/hide (no fade) */
+}
+
+.sidebar .tree a:hover::after,
+.sidebar .tree a:focus-visible::after {
+  visibility: visible;
+}
+
+.sidebar a.active {
+  color: var(--accent);
+}
+
+/* Inline links inside content */
+.content a {
+  font-size: var(--fs-content);
+  margin-bottom: var(--gutter);
+  color: var(--accent); /* dark grey */
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.content a:hover {
+  color: var(--accent); /* dark red */
+}
+
+
+

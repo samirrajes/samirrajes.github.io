@@ -13,6 +13,13 @@
   
     <div class="project-details">
 
+      <div class="project-gallery">
+        <img src="./docs/echo/1.png" alt="Echo Image 1">
+        <img src="./docs/echo/2.jpg" alt="Echo Image 2">
+        <!-- <img src="./docs/echo/4.png" alt="Echo Image 4">
+        <img src="./docs/echo/5.jpg" alt="Echo Image 5"> -->
+      </div>
+
       <p>
       Echo begins with a webcam feed processed in TouchDesigner using a MediaPipe segmentation model to separate a visitor’s body from the background. The silhouette is downsampled to a 7×7 grid of binary states, where each pixel represents either a “push” (servo forward) or “pull” (servo back). This 49-bit array is streamed via serial to an Arduino Mega, which controls three daisy-chained 16-channel PWM driver boards.  
       </p>
@@ -34,6 +41,10 @@
       <p>
         Building Echo required balancing live video processing latency, servo response time, and mechanical limits to ensure a smooth, responsive display. The final installation offers both an immediate visual impact and a deeper commentary on the merging of human presence with machine interpretation, drawing inspiration from Daniel Rozin’s mechanical mirrors.
       </p>
+
+      <br>
+
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/rVO2bWj8Jqg?si=V1Dc-CPQv7xHh0YE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
     </div>
   </div>
