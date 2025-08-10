@@ -17,6 +17,7 @@ async function loadPage(file, hash) {
     const resp = await fetch(`content/${file}`);
     const html = await resp.text();
     contentEl.innerHTML = html;
+    contentEl.scrollTop = 0;
 
     // execute any inline <script> tags
     contentEl.querySelectorAll('script').forEach(old => {
@@ -45,18 +46,18 @@ async function loadPage(file, hash) {
       setActiveLink('');
     });
 
-    // Create second (bottom-right) close button
-    // const closeBottom = document.createElement('a');
-    // closeBottom.href = '#';
-    // closeBottom.textContent = '(Close)';
-    // closeBottom.className = 'close-btn close-bottom';
-    // // append to body for fixed positioning
-    // document.body.appendChild(closeBottom);
-    // closeBottom.addEventListener('click', e => {
-    //   e.preventDefault();
-    //   document.body.classList.replace('detail', 'home');
-    //   setActiveLink('');
-    // });
+    //Create second (bottom-right) close button
+    const closeBottom = document.createElement('a');
+    closeBottom.href = '#';
+    closeBottom.textContent = '(Close)';
+    closeBottom.className = 'close-btn close-bottom';
+    // append to body for fixed positioning
+    document.body.appendChild(closeBottom);
+    closeBottom.addEventListener('click', e => {
+      e.preventDefault();
+      document.body.classList.replace('detail', 'home');
+      setActiveLink('');
+    });
 
   } catch (e) {
     contentEl.innerHTML = `<p>Error loading ${file}</p>`;
