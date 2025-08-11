@@ -31,6 +31,7 @@ async function loadPage(file, hash) {
 
     // switch to detail pane
     document.body.classList.replace('home', 'detail');
+    contentEl.scrollTop = 0;
 
     // Create first (top) close button
     const closeTop = document.createElement('a');
