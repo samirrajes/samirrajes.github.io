@@ -459,6 +459,35 @@ body.detail .close-btn.close-bottom {
   }
 }
 
+.status-box {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.status-photo {
+  width: 200px; /* desktop size */
+  height: 200px;
+  object-fit: cover;
+  /* border-radius: 50%; circle crop */
+  border: 2px solid var(--text); /* black border */
+}
+
+.status-text {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .status-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .status-photo {
+    width: 150px;
+    height: 150px;
+  }
+}
 
 
 
